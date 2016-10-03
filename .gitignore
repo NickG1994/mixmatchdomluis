@@ -1,29 +1,50 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+#include <iostream>
+#include <string>
+using namespace std;
+// Chapter 16 Exceptions:
 
-# Precompiled Headers
-*.gch
-*.pch
+// Exceptions are used to signal error or unexpected events that occur
+// while the program is running
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+// To handle an exception, a program must have a try/catch construct
+// you can have more than one catch block it should follow imediately
+// after the try block
 
-# Fortran module files
-*.mod
-*.smod
+// What if an Exception is not caught?
+// case 1:  You dont have a catch block with the correct exception parameter
+// case 2:  the Exception is thrown from outside a try block.
+//  In either case the Exception will cause the entire program to abort 
+// execution.
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+double divide(double numerator,double denominator)
+{
+	if (denominator == 0)
+		throw string("Error: cannot divide by zero.\n");
+	else
+		return numerator/denominator;
+}
 
-# Executables
-*.exe
-*.out
-*.app
+
+int main()
+{
+	int num1,num2;
+	double quotient;
+
+	cout<<"Enter two numbers: ";
+	cin>>num1>>num2;
+	quotient=num1/num2;
+	cout<<quotient<<endl;
+	/*try {
+		quotient=divide(num1,num2);
+		cout<<"The quotient is "<<quotient<<endl;
+	}
+
+	 catch (string exceptionString)
+	 {
+		 cout<<exceptionString;
+	 }
+   cout<<"End of program \n";   */
+   system("pause");
+   return 0;
+
+}
