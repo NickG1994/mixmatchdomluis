@@ -1,50 +1,124 @@
-#include <iostream>
-#include <string>
+Conversation opened. 1 unread message.
+
+Skip to content
+Using Gmail with screen readers
+Search
+
+
+
+Gmail
+COMPOSE
+Labels
+Inbox (156)
+Starred
+Important
+Sent Mail
+Personal
+Travel
+More 
+Hangouts
+
+ 
+ 
+ 
+  More 
+1 of 600  
+ 
+Print all In new window
+(no subject)
+Inbox
+x 
+
+Dominic Gaona
+Attachments6:14 PM (0 minutes ago)
+
+to me 
+Attachments area
+	
+Click here to Reply or Forward
+6.72 GB (5%) of 115 GB used
+Manage
+Terms - Privacy
+Last account activity: 0 minutes ago
+Details
+Dominic Gaona
+Add to circles
+
+Show details
+
+#include<iostream>
+#include<Windows.h>
+#include<string>
+#include<random>
+#include<iomanip>
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
-// Chapter 16 Exceptions:
+                 
+ int board[4][4] = {1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8};
 
-// Exceptions are used to signal error or unexpected events that occur
-// while the program is running
+string character, line;
 
-// To handle an exception, a program must have a try/catch construct
-// you can have more than one catch block it should follow imediately
-// after the try block
 
-// What if an Exception is not caught?
-// case 1:  You dont have a catch block with the correct exception parameter
-// case 2:  the Exception is thrown from outside a try block.
-//  In either case the Exception will cause the entire program to abort 
-// execution.
-
-double divide(double numerator,double denominator)
+void DrawBoard()//CALLS FUNCTION TO DRAW THE BOARD FOR THE Memory Game
 {
-	if (denominator == 0)
-		throw string("Error: cannot divide by zero.\n");
-	else
-		return numerator/denominator;
-}
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(h, FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 
+	line.assign(25, '-');
+	character.assign(13, '*');
+	cout << "Memory Game" << endl;
+	cout << character << endl;
+
+	for (int r = 0; r < 4; r++)
+	{
+		for (int c = 0; c < 4; c++)
+		{
+			
+			cout << setw(5) << board[r][c]  << "|";
+		}
+		cout << " \n" << line << endl;
+	}
+
+	system("pause");
+	system("cls");
+
+	//timer here
+
+	
+}
+/*
+void playerinput()
+{
+	int character1,character2;
+	cout << "Enter a number from the board: ";
+	cin >> character1;
+	cout << "Enter another number from the board ";
+	cin >> character2;
+		if(character1 == 1)
+		{
+			if()
+			{
+
+			}
+
+
+		}
+
+}
+*/
 
 int main()
 {
-	int num1,num2;
-	double quotient;
+	DrawBoard();
+    
 
-	cout<<"Enter two numbers: ";
-	cin>>num1>>num2;
-	quotient=num1/num2;
-	cout<<quotient<<endl;
-	/*try {
-		quotient=divide(num1,num2);
-		cout<<"The quotient is "<<quotient<<endl;
-	}
-
-	 catch (string exceptionString)
-	 {
-		 cout<<exceptionString;
-	 }
-   cout<<"End of program \n";   */
-   system("pause");
-   return 0;
-
+	system("pause");
+	return 0;
 }
+
+
+Source.cpp
+Open with
+Displaying Source.cpp.
